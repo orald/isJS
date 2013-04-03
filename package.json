@@ -1,0 +1,35 @@
+{
+  "author": "Oral Dalay <oraldalay@gmail.com> (http://orald.github.com)",
+  "name": "SHJS",
+  "description": "A small library of functions daily used",
+  "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/orald/SHJS",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orald/SHJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/orald/SHJS/issues",
+    "email": "oraldalay@gmail.com"
+  },
+  "keywords": [
+    "javascript",
+    "util",
+    "SHJS"
+  ],
+  "dependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jasmine": "~0.4.1",
+    "phantomjs": "1.8.2-0",
+    "grunt-lib-phantomjs": "~0.2.0"
+  }
+}
