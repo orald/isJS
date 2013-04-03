@@ -1,19 +1,22 @@
 This library is written to help identifying Javascript types.
+
 <h1>Functions</h1>
 ```javascript
 
-is.Boolean(arg);
+is.Boolean(arg); // returns true if the arg is of type "boolean"
 
-is.Primitive(arg);
+is.Primitive(arg); // returns true if the arg is primitive (undefined, number, string, boolean)
 
-is.Numeric(arg);
+is.Numeric(arg); // returns true if the arg is numeric type
 
-is.Integer(arg);
+is.Integer(arg); // returns true if the arg is "integer"
 
-is.Float(arg);
+is.Float(arg); // returns true if the arg is "double"
 
-is.Object(arg);
+is.Object(arg); // returns true if the arg is "object"
 
-is.Array(arg);
+is.Array(arg); // returns true if the arg is "array"
+
+is.Function(arg); // returns true if the arg is "function"
 
 ```

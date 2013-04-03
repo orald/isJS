@@ -2,6 +2,16 @@ module.exports = function(grunt) {
   "use strict";
 
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      options: {
+        separator: ';'
+      },
+      dist: {
+        src: ['lib/**/*.js'],
+        dest: 'dist/<%= pkg.name %>.js'
+      }
+    },
     jasmine: {
       src: 'lib/**/*.js',
       options: {
@@ -9,7 +19,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      all: ['gruntfile.js', 'lib/**/*.js', 'test/**/*.js'],
+      all: ['Gruntfile.js', 'lib/**/*.js', 'test/**/*.js'],
       options: {
         // options here to override JSHint defaults
         globals: {
@@ -19,14 +29,32 @@ module.exports = function(grunt) {
           document: true
         }
       }
+    },
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    },
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['jshint', 'jasmine']
     }
   });
 
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  grunt.registerTask('test', ['jshint', 'jasmine']);
+  grunt.registerTask('builder', ['jshint', 'jasmine', 'concat', 'uglify']);
 
-  grunt.registerTask('default', ['test']);
+  grunt.registerTask('default', ['builder']);
 
 };
+
