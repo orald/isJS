@@ -1,6 +1,6 @@
 {
   "author": "Oral Dalay <oraldalay@gmail.com> (http://orald.github.com)",
-  "name": "isJS",
+  "name": "is",
   "description": "A small library of functions to check Javasript types",
   "version": "0.0.1",
   "license": "MIT",
