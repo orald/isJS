@@ -9,10 +9,10 @@
 		
 	// Credits to abozhilov
 	PRIMITIVES = {
-		string : 1,
-		number : 1,
-		undefined : 1,
-		boolean : 1
+		"string" : 1,
+		"number" : 1,
+		"undefined" : 1,
+		"boolean" : 1
 	},
 
 	previousis = window.is,
@@ -43,11 +43,11 @@
 
 	// return format is string
 	is.typeOF = function(v){
-		return v === null?String(v):is._C2Type[is._Core['_2String'].call(v)] || typeof v;
+		return v === null?String(v):is._C2Type[is._Core._2String.call(v)] || typeof v;
 	},
 
 	is.Boolean = function(v){
-		return is.typeOF(v) === 'boolean'
+		return is.typeOF(v) === 'boolean';
 	},
 
 	is.Primitive = function(v){
