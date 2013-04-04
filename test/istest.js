@@ -6,7 +6,7 @@ describe("Is A test!", function() {
 	});
 	
 	it("isNumericFalsy", function() {
-		var Falsy = ['D','XS','/','-',{},undefined,'', null];
+		var Falsy = [{}, undefined, '', null, []];
 		
 		for(var i in Falsy){
 			expect(is.Numeric(Falsy[i])).toBe(false);
@@ -38,7 +38,7 @@ describe("Is A test!", function() {
 	});
 	
 	it("isIntegerTruthy", function() {
-		var ints = [0, -1, 1, 23412, -23412, -32345454545454];
+		var ints = [0, -1, 1, 23412, -23412, -32345454545454, -0];
 		
 		for(var j in ints){
 			expect(is.Integer(ints[j])).toBe(true);		
@@ -54,7 +54,7 @@ describe("Is A test!", function() {
 	});
 
 	it("isFloatFalsy", function() {
-		var floats = [true, 1, 23, 0, -0, {}, [], ""];
+		var floats = [true, 1, 23, 0, -0, {}, [], ''];
 		
 		for(var j in floats){
 			expect(is.Float(floats[j])).toBe(false);		
@@ -62,7 +62,7 @@ describe("Is A test!", function() {
 	});
 	
 	it("isBooleanFalsy", function() {
-		var bools = [1, 23, 0, -0, {}, [], ""];
+		var bools = [1, 23, 0, -0, {}, [], ''];
 		
 		for(var j in bools){
 			expect(is.Boolean(bools[j])).toBe(false);		
@@ -78,7 +78,7 @@ describe("Is A test!", function() {
 	});
 
 	it("isFunctionFalsy", function() {
-		var fns = [1, 23, 0, -0, {}, [], "", true];
+		var fns = [1, 23, 0, -0, {}, [], '', true];
 		
 		for(var j in fns){
 			expect(is.Function(fns[j])).toBe(false);		
@@ -94,7 +94,7 @@ describe("Is A test!", function() {
 	});
 
 	it("isArrayFalsy", function() {
-		var arrays = [-1, 0, undefined, {}, null, function a(){}, 0.1];
+		var arrays = [-1, 0, undefined, {}, null, function a(){}, 0.1, ''];
 		
 		for(var j in arrays){
 			expect(is.Array(arrays[j])).toBe(false);		
@@ -127,9 +127,25 @@ describe("Is A test!", function() {
 	});
 
 	it("isRegExpFalsy", function() {
-		var regexps = [undefined, null, 0, 0.1, true, {}, []];
+		var regexps = [undefined, null, 0, 0.1, true, {}, [], '$'];
 		for(var j in regexps){
 			expect(is.RegExp(regexps[j])).toBe(false);		
+		}
+	});
+
+	it("isObjectTruthy", function() {
+		var objs = [{}];
+		
+		for(var j in objs){
+			expect(is.Object(objs[j])).toBe(true);		
+		}
+	});
+
+	it("isObjectFalsy", function() {
+		var objs = [1, 23, 0, -0, [], '', true];
+		
+		for(var j in objs){
+			expect(is.Object(objs[j])).toBe(false);		
 		}
 	});
 

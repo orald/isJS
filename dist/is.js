@@ -67,7 +67,7 @@
 	},
 	
 	is.Object = function(v){
-		return v === Object(v);
+		return is.typeOF(v) === 'object';
 	},
 
 	is.Array = function(v){

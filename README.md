@@ -1,4 +1,4 @@
-This library is written to help identifying Javascript types.
+This library is written to help identifying Javascript types
 
 <h1>Functions</h1>
 ```javascript
@@ -19,7 +19,7 @@ is.Array(arg); // returns true if the arg is "array"
 
 is.Function(arg); // returns true if the arg is "function"
 
-is.RegExp(arg); / returns true if the arg is "regex"
+is.RegExp(arg); // returns true if the arg is "regex"
 
 ```
 
