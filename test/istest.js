@@ -1,6 +1,6 @@
-"use strict";
-
 describe("Is A test!", function() {
+	"use strict";
+
 	beforeEach(function() {
 
 	});
@@ -70,7 +70,7 @@ describe("Is A test!", function() {
 	});
 
 	it("isBooleanTruthy", function() {
-		var bools = [true, false, new Boolean(true), new Boolean(false)];
+		var bools = [true, false];
 		
 		for(var j in bools){
 			expect(is.Boolean(bools[j])).toBe(true);		
@@ -86,7 +86,7 @@ describe("Is A test!", function() {
 	});
 
 	it("isFunctionTruthy", function() {
-		var fns = [function a(){}, new Function()];
+		var fns = [function a(){}];
 		
 		for(var j in fns){
 			expect(is.Function(fns[j])).toBe(true);		
