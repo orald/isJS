@@ -71,13 +71,17 @@
 	},
 
 	is.Array = function(v){
-		return v === null?false:is.typeOF(v) === "array";
+		return is.typeOF(v) === 'array';
 	},
 	
 	is.Function = function(v){
-		return typeof v === 'function';
+		return is.typeOF(v) === 'function';
 	},
 	
+	is.RegExp = function(v){
+		return is.typeOF(v) === 'regexp';
+	},
+
 	is.NegZero = function(v){
 		// return v === 0 && 1/v === -Infinity;
 		

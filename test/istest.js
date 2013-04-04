@@ -109,10 +109,30 @@ describe("Is A test!", function() {
 		}
 	});
 
-	it("isNegZero", function() {
+	it("isNegZeroTruthy", function() {
 		var v = -0;
 		expect(is.NegZero(v)).toBe(true);		
 	});
+
+	it("isNegZeroFalsy", function() {
+		var v = 1;
+		expect(is.NegZero(v)).toBe(false);		
+	});
+
+	it("isRegExpTruthy", function() {
+		var regexps = [/^foo(bar)?$/i, new RegExp()];
+		for(var j in regexps){
+			expect(is.RegExp(regexps[j])).toBe(true);		
+		}
+	});
+
+	it("isRegExpFalsy", function() {
+		var regexps = [undefined, null, 0, 0.1, true, {}, []];
+		for(var j in regexps){
+			expect(is.RegExp(regexps[j])).toBe(false);		
+		}
+	});
+
 
 });
 
