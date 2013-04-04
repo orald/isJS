@@ -71,7 +71,7 @@
 	},
 
 	is.Array = function(v){
-		return v === null?false:is.typeOF(v) === "array";
+		return v === null?false:is.typeOF(v) === 'array';
 	},
 	
 	is.Function = function(v){
