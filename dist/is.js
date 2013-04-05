@@ -82,6 +82,10 @@
 		return is.typeOF(v) === 'regexp';
 	},
 
+	is.ReallyNaN = function(v){
+		return v !== v;
+	},
+
 	is.NegZero = function(v){
 		// return v === 0 && 1/v === -Infinity;
 		

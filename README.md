@@ -21,6 +21,8 @@ is.Function(arg); // returns true if the arg is "function"
 
 is.RegExp(arg); // returns true if the arg is "regex"
 
+is.ReallyNaN(arg) // safer than isNaN function, returns true only if NaN !== NaN
+
 ```
 
 <h1>Release History</h1>

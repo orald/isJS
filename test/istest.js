@@ -149,6 +149,18 @@ describe("Is A test!", function() {
 		}
 	});
 
+	it("isReallyNaNTruthy", function() {
+		expect(is.ReallyNaN(NaN)).toBe(true);		
+	});
+
+	it("isReallyNaNFalsy", function() {
+		var nans = [1, 23, 0, -0, [], {}, true, ''];
+		
+		for(var j in nans){
+			expect(is.ReallyNaN(nans[j])).toBe(false);		
+		}
+	});
+
 
 });
 
