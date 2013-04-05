@@ -82,6 +82,7 @@
 		return is.typeOF(v) === 'regexp';
 	},
 
+	// taken from effectiveJS book by David Herman
 	is.ReallyNaN = function(v){
 		return v !== v;
 	},
