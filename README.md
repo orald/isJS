@@ -1,3 +1,5 @@
+[![build status](https://secure.travis-ci.org/orald/isJS?branch=master)](http://travis-ci.org/orald/isJS)
+
 This library is written to help identifying Javascript types
 
 <h1>Functions</h1>
