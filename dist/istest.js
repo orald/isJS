@@ -161,45 +161,6 @@ describe("Is A test!", function() {
 		}
 	});
 
-	it('isStringFalsy', function(){
-		var strings = [1, 23, 0, -0, [], {}, true];
-		
-		for(var j in strings){
-			expect(is.String(strings[j])).toBe(false);		
-		}
-	});
-
-	it('isStringTruthy', function(){
-		var strings = ['', '1'];
-		
-		for(var j in strings){
-			expect(is.String(strings[j])).toBe(true);		
-		}
-	});
-
-	it('isUndefinedFalsy', function(){
-		var undefineds = [1, 23, 0, -0, [], {}, true, null, ''];
-		
-		for(var j in undefineds){
-			expect(is.Undefined(undefineds[j])).toBe(false);		
-		}
-	});
-
-	it('isUndefinedTruthy', function(){
-		expect(is.Undefined(undefined)).toBe(true);		
-	});
-
-	it('isBlankStringFalsy', function(){
-		var strings = [1, 23, 0, -0, [], {}, true, 'a'];
-		
-		for(var j in strings){
-			expect(is.BlankString(strings[j])).toBe(false);		
-		}
-	});
-
-	it('isBlankStringTruthy', function(){
-		expect(is.BlankString('')).toBe(true);		
-	});
 
 });
 

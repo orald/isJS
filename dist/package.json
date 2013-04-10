@@ -1,0 +1,40 @@
+{
+  "author": "Oral Dalay <oraldalay@gmail.com> (http://orald.github.com)",
+  "name": "is",
+  "description": "A small library of functions to check Javasript types",
+  "version": "0.0.1",
+  "license": "MIT",
+  "homepage": "https://github.com/orald/isJS",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orald/isJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/orald/isJS/issues",
+    "email": "oraldalay@gmail.com"
+  },
+  "keywords": [
+    "javascript",
+    "util",
+    "isJS"
+  ],
+  "dependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+	"scripts": {
+    "test": "grunt jasmine"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-jasmine": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.3.0",
+    "grunt-contrib-concat": "~0.1.3",
+    "grunt-contrib-watch": "~0.3.1",
+    "phantomjs": "1.8.2-0",
+    "grunt-lib-phantomjs": "~0.2.0"
+  }
+}
+

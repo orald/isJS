@@ -9,31 +9,31 @@
 		
 	// Credits to abozhilov
 	PRIMITIVES = {
-		"string" : 1,
-		"number" : 1,
-		"undefined" : 1,
-		"boolean" : 1
+		'string' : 1,
+		'number' : 1,
+		'undefined' : 1,
+		'boolean' : 1
 	},
 
 	previousis = window.is,
 	is = root.is = {};
 	
 	// current version
-	is.VERSION = "0.0.1",
+	is.VERSION = '0.0.1',
 		
 	is._Core = { 
 		'_2String' : Object.prototype.toString
 	},	
 	
 	is._C2Type = {
-		"[object Array]" : "array",
-		"[object Boolean]" : "boolean",
-		"[object Date]" : "date",		
-		"[object Function]" : "function",
-		"[object Number]" : "number",
-		"[object Object]" : "object",
-		"[object RegExp]" : "regexp",			
-		"[object String]" : "string"
+		'[object Array]' : 'array',
+		'[object Boolean]' : 'boolean',
+		'[object Date]' : 'date',		
+		'[object Function]' : 'function',
+		'[object Number]' : 'number',
+		'[object Object]' : 'object',
+		'[object RegExp]' : 'regexp',			
+		'[object String]' : 'string'
 	},
 
 	is.noConflict = function() {
@@ -85,6 +85,18 @@
 	// taken from effectiveJS book by David Herman
 	is.ReallyNaN = function(v){
 		return v !== v;
+	},
+
+	is.Undefined = function(v){
+		return typeof v in PRIMITIVES && typeof v === 'undefined';
+	},
+
+	is.String = function(v){
+		return typeof v in PRIMITIVES && typeof v === 'string';
+	},
+
+	is.BlankString = function(v){
+		return typeof v in PRIMITIVES && typeof v === 'string' && v === '';
 	},
 
 	is.NegZero = function(v){
