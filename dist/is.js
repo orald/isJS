@@ -71,7 +71,7 @@
 	},
 
 	is.Array = function(v){
-		return is.typeOF(v) === 'array';
+		return Array.isArray?Array.isArray(v):is.typeOF(v) === 'array';
 	},
 	
 	is.Function = function(v){
