@@ -38,6 +38,6 @@ is.BooleanTrue // returns true if and only if the arg is boolean "true"
 
 <h1>Release History</h1>
 v0.0.1: Initial version providing basic type checking functions.
-v0.0.2: Throw mechanism added, now you can pass the message you like to see when there is an error.
+<br/>v0.0.2: Throw mechanism added, now you can pass the message you like to see when there is an error.
 <h1>License</h1>
 isJS is released under MIT license.
