@@ -45,72 +45,208 @@
 	is.typeOF = function(v){
 		return v === null?String(v):is._C2Type[is._Core._2String.call(v)] || typeof v;
 	},
-
-	is.Boolean = function(v){
-		return is.typeOF(v) === 'boolean';
-	},
-
-	is.Primitive = function(v){
-		return typeof v in PRIMITIVES || !v;
-	},
-
-	is.Numeric = function(v){
-		return !isNaN(parseFloat(v)) && isFinite(v);
-	},
 	
-	is.Integer = function(v){
-		return is.typeOF(v) === 'number' && v % 1 === 0;
-	},
-	
-	is.Float = function(v){
-		return !isNaN(parseFloat(v)) && v % 1 !== 0;
-	},
-	
-	is.Object = function(v){
-		return Object.isObject?Object.isObject(v):is.typeOF(v) === 'object';
+	is.Primitive = function(v, message){
+		if(typeof v in PRIMITIVES || !v){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 
-	is.Array = function(v){
-		return Array.isArray?Array.isArray(v):is.typeOF(v) === 'array';
+	is.Boolean = function(v, message){
+		if(is.typeOF(v) === 'boolean'){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
+	},
+
+	is.Numeric = function(v, message){
+		if(!isNaN(parseFloat(v)) && isFinite(v)){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 	
-	is.Function = function(v){
-		return is.typeOF(v) === 'function';
+	is.Integer = function(v, message){
+		if(is.typeOF(v) === 'number' && v % 1 === 0){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 	
-	is.RegExp = function(v){
-		return is.typeOF(v) === 'regexp';
+	is.Float = function(v, message){
+		if(!isNaN(parseFloat(v)) && v % 1 !== 0){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
+	},
+	
+	is.Object = function(v, message){
+		if(Object.isObject?Object.isObject(v):is.typeOF(v) === 'object'){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
+	},
+
+	is.Array = function(v, message){
+		if(Array.isArray?Array.isArray(v):is.typeOF(v) === 'array'){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
+	},
+	
+	is.Function = function(v, message){
+		if(is.typeOF(v) === 'function'){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
+	},
+	
+	is.RegExp = function(v, message){
+		if(is.typeOF(v) === 'regexp'){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 
 	// taken from effectiveJS book by David Herman
-	is.ReallyNaN = function(v){
-		return v !== v;
+	is.ReallyNaN = function(v, message){
+		if(v !== v){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 
-	is.Undefined = function(v){
-		return typeof v in PRIMITIVES && typeof v === 'undefined';
+	is.Undefined = function(v, message){
+		if(typeof v in PRIMITIVES && typeof v === 'undefined'){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 
-	is.String = function(v){
-		return typeof v in PRIMITIVES && typeof v === 'string';
+	is.String = function(v, message){
+		if(typeof v in PRIMITIVES && typeof v === 'string'){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 
-	is.BlankString = function(v){
-		return typeof v in PRIMITIVES && typeof v === 'string' && v === '';
+	is.BlankString = function(v, message){
+		if(typeof v in PRIMITIVES && typeof v === 'string' && v === ''){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
 	},
 
-	is.NegZero = function(v){
+	is.BooleanTrue = function(v, message){
+		if(v&&(v===!!v)){
+			return true;
+		}else{
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
+	},
+
+	is.NegZero = function(v, message){
 		// return v === 0 && 1/v === -Infinity;
 		
 		if (v !== 0){
-			return false;
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
 		}
+		
 		var obj = Object.freeze({z:-0});
+		
 		try {
 			Object.defineProperty(obj, 'z', {value:v});
-		} catch (e) {return false;}
+		} catch (e) {
+			if(message){
+				fire(message);
+			}else{
+				return false;
+			}
+		}
+
 		return true;
 	};
+
+	function fire(message){
+		throw {
+			name:'Error',
+			message: message
+		};
+	}
 
 	// NodeJS compatibility
 	if (typeof exports !== 'undefined') {

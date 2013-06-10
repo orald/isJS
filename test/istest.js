@@ -2,7 +2,6 @@ describe("Is A test!", function() {
 	"use strict";
 
 	beforeEach(function() {
-
 	});
 	
 	it("isNumericFalsy", function() {
@@ -11,8 +10,9 @@ describe("Is A test!", function() {
 		for(var i in Falsy){
 			expect(is.Numeric(Falsy[i])).toBe(false);
 		}
+		expect(function(){is.Numeric(Falsy[0], "Is not Numeric");}).toThrow("Is not Numeric");
 	});
-	
+
 	it("isNumericTruthy", function() {
 		var Truthy = ['-1', '0', '0.5', '0.000000001', '100000000'];
 				
@@ -23,10 +23,10 @@ describe("Is A test!", function() {
 	
 	it("isPrimitiveFalsy", function() {
 		var Falsy = [{}, []];		
-
 		for(var i in Falsy){
 			expect(is.Primitive(Falsy[i])).toBe(false);
 		}
+		expect(function(){is.Primitive(Falsy[0], "Is not Primitive");}).toThrow("Is not Primitive");
 	});
 	
 	it("isPrimitiveTruthy", function() {
@@ -201,5 +201,16 @@ describe("Is A test!", function() {
 		expect(is.BlankString('')).toBe(true);		
 	});
 
+	it('isTrueBooleanTruthy', function(){		
+		expect(is.BooleanTrue(true)).toBe(true);
+	});
+
+	it('isBlankStringFalsy', function(){
+		var Falsy = [1, 23, 0, -0, [], {}, 'a'];
+		
+		for(var j in Falsy){
+			expect(is.BooleanTrue(Falsy[j])).toBe(false);
+		}
+	});
 });
 
