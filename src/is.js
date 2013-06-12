@@ -19,7 +19,7 @@
 	is = root.is = {};
 	
 	// current version
-	is.VERSION = '0.0.1',
+	is.VERSION = '0.0.2',
 		
 	is._Core = { 
 		'_2String' : Object.prototype.toString
